@@ -1,0 +1,286 @@
+:root {
+    --black: #0A0908;
+    --gunmetal: #22333B;
+    --white-smoke: #F2F4F3;
+    --beaver: #A9927D;
+    --walnut-brown: #5E503F;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--gunmetal) 0%, var(--black) 100%);
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.bio-card {
+    background: rgba(242, 244, 243, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.bio-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(169, 146, 125, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.bio-card:hover::before {
+    transform: rotate(45deg) translate(20px, 20px);
+}
+
+.bio-content {
+    position: relative;
+    z-index: 1;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.photo-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid var(--beaver);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.photo-container:hover {
+    transform: scale(1.05);
+    border-color: var(--walnut-brown);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.photo-container:hover .photo {
+    transform: scale(1.1);
+}
+
+.name {
+    margin-top: 20px;
+    color: var(--walnut-brown);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+    transition: var(--transition);
+}
+
+.name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--beaver);
+    transition: var(--transition);
+}
+
+.name:hover::after {
+    width: 100%;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background: var(--white-smoke);
+    color: var(--walnut-brown);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(169, 146, 125, 0.2), transparent);
+    transition: var(--transition);
+}
+
+.link:hover::before {
+    left: 100%;
+}
+
+.link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--beaver);
+    color: var(--black);
+}
+
+.link i {
+    margin-right: 10px;
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.link:hover i {
+    transform: scale(1.2);
+}
+
+.twitter:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%);
+    color: white;
+}
+
+.instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+}
+
+.email:hover {
+    background: linear-gradient(135deg, #EA4335 0%, #D14836 100%);
+    color: white;
+}
+
+.whatsapp:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+}
+
+.telegram:hover {
+    background: linear-gradient(135deg, #0088cc 0%, #006daa 100%);
+    color: white;
+}
+
+.tiktok:hover {
+    background: linear-gradient(135deg, #000000 0%, #25F4EE 50%, #FE2C55 100%);
+    color: white;
+}
+
+.music-player {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--white-smoke);
+    border-radius: 50px;
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.music-player.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.player-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--walnut-brown);
+    margin: 0 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.player-btn:hover {
+    background: var(--beaver);
+    color: var(--white-smoke);
+    transform: scale(1.1);
+}
+
+.music-title {
+    font-size: 12px;
+    margin: 0 10px;
+    color: var(--walnut-brown);
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    .music-player {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .links {
+        grid-template-columns: 1fr;
+    }
+    
+    .bio-card {
+        padding: 20px;
+    }
+    
+    .photo-container {
+        width: 120px;
+        height: 120px;
+    }
+}

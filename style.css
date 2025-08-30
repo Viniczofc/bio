@@ -191,7 +191,7 @@ body {
 }
 
 .email:hover {
-    background: linear-gradient(135deg, #EA4335 0%, #D14836 100%);
+    background: linear-gradient(135deg, #000000 0%, #161616 100%);
     color: white;
 }
 
@@ -283,4 +283,5 @@ body {
         width: 120px;
         height: 120px;
     }
+
 }
